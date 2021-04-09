@@ -9,8 +9,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 setwd('~/Documents/morning-glory/')
-library(limma)
-library(edgeR)
 ```
 
 ## Analyze go results
