@@ -1,0 +1,121 @@
+---
+title: "analyze_go_results"
+output:
+  html_document:
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+setwd('~/Documents/morning-glory/')
+library(limma)
+library(edgeR)
+```
+
+## Analyze go results
+```{r}
+go1 = read.csv('data/GOlists/GOresults_plastic_expasref.csv')
+go2 = read.csv('data/GOlists/GOresults_evolved_expasref.csv')
+
+##merge
+goall = dplyr::left_join(go1, go2, by = "GO.biological.process.complete")
+
+
+##plastic
+
+plastictable = data.frame(bio= goall$GO.biological.process.complete, enrich = goall$plastic_ref_forGO.txt..fold.Enrichment., observed= goall$plastic_ref_forGO.txt..7679., expected = goall$plastic_ref_forGO.txt..expected., pval = goall$plastic_ref_forGO.txt..raw.P.value., fdr=goall$plastic_ref_forGO.txt..FDR.)
+dplyr::filter(plastictable, pval < 0.01, enrich>1) ##only want enrichments not depletions. ##lowering p value cutoff because nothing sig at 0.01
+
+##plastic32
+plastic32table = data.frame(bio= goall$GO.biological.process.complete, enrich = goall$plastic32_ref_forGO.txt..fold.Enrichment., observed= goall$plastic32_ref_forGO.txt..7279., expected = goall$plastic32_ref_forGO.txt..expected., pval = goall$plastic32_ref_forGO.txt..raw.P.value., fdr = goall$plastic32_ref_forGO.txt..FDR.)
+dplyr::filter(plastic32table, pval<0.001, enrich>1)
+
+##plastic8
+
+plastic8table = data.frame(bio= goall$GO.biological.process.complete, enrich = goall$plastic8_ref_forGO.txt..fold.Enrichment., observed= goall$plastic8_ref_forGO.txt..4605., expected = goall$plastic8_ref_forGO.txt..expected., pval = goall$plastic8_ref_forGO.txt..raw.P.value., fdr=goall$plastic8_ref_forGO.txt..FDR.)
+dplyr::filter(plastic8table, pval<0.001, enrich>1)
+
+##different dir
+
+difftable = data.frame(bio= goall$GO.biological.process.complete, 
+                       enrich = goall$different_dir_832_genes_ref_forGO.txt..fold.Enrichment.,
+                       observed= goall$different_dir_832_genes_ref_forGO.txt..129., 
+                       expected = goall$different_dir_832_genes_ref_forGO.txt..expected., 
+                       pval = goall$different_dir_832_genes_ref_forGO.txt..raw.P.value.,
+                       fdr = goall$different_dir_832_genes_ref_forGO.txt..FDR.)
+dplyr::filter(difftable, pval < 0.001, enrich>1)
+
+##evolved
+evolvedtable = data.frame(bio= goall$GO.biological.process.complete, enrich = goall$evolved_ref_forGO.txt..fold.Enrichment., observed= goall$evolved_ref_forGO.txt..166., expected = goall$evolved_ref_forGO.txt..expected., pval = goall$evolved_ref_forGO.txt..raw.P.value., fdr=goall$evolved_ref_forGO.txt..FDR.)
+dplyr::filter(evolvedtable, pval<0.01, enrich>1)
+
+##adaptive plasticity
+adaptive_plasticitytable = data.frame(bio= goall$GO.biological.process.complete, enrich = goall$adaptive_plasticity_ref_forGO.txt..fold.Enrichment., observed= goall$adaptive_plasticity_ref_forGO.txt..41., expected = goall$adaptive_plasticity_ref_forGO.txt..expected., pval = goall$adaptive_plasticity_ref_forGO.txt..raw.P.value., fdr=goall$adaptive_plasticity_ref_forGO.txt..FDR.)
+dplyr::filter(adaptive_plasticitytable, pval < 0.01, enrich>1)
+
+##maladaptive plasticity
+maladaptive_plasticitytable = data.frame(bio= goall$GO.biological.process.complete, enrich = goall$maladaptive_plasticity_ref_forGO.txt..fold.Enrichment., observed= goall$maladaptive_plasticity_ref_forGO.txt..15., expected = goall$maladaptive_plasticity_ref_forGO.txt..expected., pval = goall$maladaptive_plasticity_ref_forGO.txt..raw.P.value., fdr=goall$maladaptive_plasticity_ref_forGO.txt..FDR.)
+dplyr::filter(maladaptive_plasticitytable, pval < 0.01, enrich>1)
+
+
+###looking at up and down seperately 
+dir1 = read.csv('data/GOlists/plasticresults1.csv')
+dir2 = read.csv('data/GOlists/plasticresults2.csv')
+
+##plastic up
+plasticuptable = data.frame(bio= dir1$GO.biological.process.complete, enrich = dir1$plasticup.txt..fold.Enrichment., observed= dir1$plasticup.txt..4158., expected = dir1$plasticup.txt..expected., pval = dir1$plasticup.txt..raw.P.value., fdr=dir1$plasticup.txt..FDR.)
+#dplyr::filter(plasticuptable, fdr < 0.05, enrich>1)
+
+dplyr::filter(plasticuptable, fdr < 1e-3, enrich>1)
+
+##plastic down
+plasticdowntable = data.frame(bio= dir1$GO.biological.process.complete, enrich = dir1$plasticdown.txt..fold.Enrichment., observed= dir1$plasticdown.txt..4129., expected = dir1$plasticdown.txt..expected., pval = dir1$plasticdown.txt..raw.P.value., fdr=dir1$plasticdown.txt..FDR.)
+#dplyr::filter(plasticdowntable, fdr < 0.05, enrich>1)
+
+dplyr::filter(plasticdowntable, fdr < 1e-3, enrich>1)
+
+##plastic 8 down
+plastic8downtable = data.frame(bio= dir1$GO.biological.process.complete, enrich = dir1$plastic8down.txt..fold.Enrichment., observed= dir1$plastic8down.txt..2285., expected = dir1$plastic8down.txt..expected., pval = dir1$plastic8down.txt..raw.P.value., fdr=dir1$plastic8down.txt..FDR.)
+dplyr::filter(plastic8downtable, fdr < 0.05, enrich>1)
+
+
+##plastic 8 up
+plastic8uptable = data.frame(bio= dir2$GO.biological.process.complete, enrich = dir2$plastic8up.txt..fold.Enrichment., observed= dir2$plastic8up.txt..2465., expected = dir2$plastic8up.txt..expected., pval = dir2$plastic8up.txt..raw.P.value., fdr=dir2$plastic8up.txt..FDR.)
+dplyr::filter(plastic8uptable, fdr < 0.05, enrich>1)
+
+##plastic 32 up
+plastic32uptable = data.frame(bio= dir2$GO.biological.process.complete, enrich = dir2$plastic32up.txt..fold.Enrichment., observed= dir2$plastic32up.txt..4014., expected = dir2$plastic32up.txt..expected., pval = dir2$plastic32up.txt..raw.P.value., fdr=dir2$plastic32up.txt..FDR.)
+dplyr::filter(plastic32uptable, fdr < 0.05, enrich>1)
+
+
+##plastic 32 down
+plastic32downtable = data.frame(bio= dir2$GO.biological.process.complete, enrich = dir2$plastic32down.txt..fold.Enrichment., observed= dir2$plastic32down.txt..3826., expected = dir2$plastic32down.txt..expected., pval = dir2$plastic32down.txt..raw.P.value., fdr=dir2$plastic32down.txt..FDR.)
+dplyr::filter(plastic32downtable, fdr < 0.05, enrich>1)
+
+eud = read.csv('data/GOlists/evolupdownGOresults.csv')
+##evolved up
+evolveduptable = data.frame(bio= eud$GO.biological.process.complete, enrich = eud$evolvedup.txt..fold.Enrichment., observed= eud$evolvedup.txt..84., expected = eud$evolvedup.txt..expected., pval = eud$evolvedup.txt..raw.P.value., fdr=eud$evolvedup.txt..FDR.)
+dplyr::filter(evolveduptable, pval<0.01, enrich>1)
+
+##evolved down
+evolveddowntable = data.frame(bio= eud$GO.biological.process.complete, enrich = eud$evolveddown.txt..fold.Enrichment., observed= eud$evolveddown.txt..85., expected = eud$evolveddown.txt..expected., pval = eud$evolveddown.txt..raw.P.value., fdr=eud$evolveddown.txt..FDR.)
+dplyr::filter(evolveddowntable, pval<0.01, enrich>1)
+
+```
+
+Look at most common GO terms (not enrichment)
+```{r}
+dplyr::filter(evolveduptable, observed > 10)
+dplyr::filter(evolveddowntable, observed > 10)
+
+
+```
+
+Write out tables for paper
+```{r}
+write.csv( dplyr::filter(plasticuptable, fdr < 0.1, enrich>1) %>% arrange(desc(enrich)), file = "TableS1.csv")
+
+
+write.csv( dplyr::filter(plasticdowntable, fdr < 0.1, enrich>1) %>% arrange(desc(enrich)), file = "TableS2.csv")
+```

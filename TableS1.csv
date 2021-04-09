@@ -1,0 +1,76 @@
+"","bio","enrich","observed","expected","pval","fdr"
+"1","response to chitin (GO:0010200)","2.26",55,24.29,7.76e-06,0.00164
+"2","defense response to fungus (GO:0050832)","1.9",89,46.95,3.58e-06,0.000929
+"3","response to hypoxia (GO:0001666)","1.87",90,48.25,4.72e-06,0.00108
+"4","response to organonitrogen compound (GO:0010243)","1.85",93,50.19,4.69e-06,0.00112
+"5","response to fungus (GO:0009620)","1.84",118,64.11,2.93e-07,0.000111
+"6","response to oxygen levels (GO:0070482)","1.84",92,49.87,6.16e-06,0.00135
+"7","response to decreased oxygen levels (GO:0036293)","1.83",90,49.22,1.06e-05,0.00216
+"8","cellular response to hypoxia (GO:0071456)","1.82",78,42.74,4.65e-05,0.00604
+"9","cellular response to oxygen levels (GO:0071453)","1.81",79,43.71,5.5e-05,0.00654
+"10","cellular response to decreased oxygen levels (GO:0036294)","1.8",78,43.39,5.34e-05,0.00663
+"11","regulation of response to biotic stimulus (GO:0002831)","1.75",56,32.06,0.00131,0.0733
+"12","regulation of response to external stimulus (GO:0032101)","1.74",58,33.35,0.00117,0.0681
+"13","response to nitrogen compound (GO:1901698)","1.7",102,59.9,2.2e-05,0.00349
+"14","secondary metabolic process (GO:0019748)","1.67",65,38.86,0.00104,0.0638
+"15","immune response (GO:0006955)","1.67",103,61.52,3.57e-05,0.00486
+"16","innate immune response (GO:0045087)","1.65",99,59.9,8.85e-05,0.00902
+"17","regulation of defense response (GO:0031347)","1.65",77,46.63,0.000499,0.0366
+"18","response to wounding (GO:0009611)","1.6",72,45.01,0.00159,0.0843
+"19","immune system process (GO:0002376)","1.58",109,68.97,0.000138,0.0131
+"20","modification-dependent macromolecule catabolic process (GO:0043632)","1.57",145,92.28,1.44e-05,0.00242
+"21","defense response to other organism (GO:0098542)","1.56",237,151.54,2.51e-08,1.79e-05
+"22","modification-dependent protein catabolic process (GO:0019941)","1.56",139,89.37,2.92e-05,0.00417
+"23","ubiquitin-dependent protein catabolic process (GO:0006511)","1.54",135,87.75,5.25e-05,0.00667
+"24","interspecies interaction between organisms (GO:0044419)","1.52",316,207.88,8.66e-10,1.65e-06
+"25","response to external biotic stimulus (GO:0043207)","1.51",309,204.32,2.08e-09,1.98e-06
+"26","response to other organism (GO:0051707)","1.51",309,204.32,2.08e-09,1.7e-06
+"27","response to biotic stimulus (GO:0009607)","1.51",310,204.65,1.7e-09,1.94e-06
+"28","proteolysis involved in cellular protein catabolic process (GO:0051603)","1.5",150,99.73,5.42e-05,0.00658
+"29","defense response (GO:0006952)","1.49",250,167.73,2.32e-07,9.46e-05
+"30","cellular protein catabolic process (GO:0044257)","1.48",151,102,8.1e-05,0.00856
+"31","protein catabolic process (GO:0030163)","1.46",154,105.56,0.000127,0.0122
+"32","response to bacterium (GO:0009617)","1.45",140,96.82,0.00038,0.0297
+"33","response to acid chemical (GO:0001101)","1.45",111,76.42,0.00127,0.0721
+"34","cellular response to oxygen-containing compound (GO:1901701)","1.45",151,103.94,0.000173,0.0152
+"35","protein modification by small protein conjugation (GO:0032446)","1.45",186,128.23,3.57e-05,0.00497
+"36","response to abscisic acid (GO:0009737)","1.44",147,102,0.000284,0.0232
+"37","protein ubiquitination (GO:0016567)","1.44",176,122.08,6.81e-05,0.00763
+"38","defense response to bacterium (GO:0042742)","1.43",113,79.01,0.00183,0.095
+"39","response to alcohol (GO:0097305)","1.43",148,103.29,0.000374,0.0297
+"40","cellular response to organic substance (GO:0071310)","1.43",183,128.23,7.97e-05,0.00859
+"41","cellular response to chemical stimulus (GO:0070887)","1.41",298,210.8,6.18e-07,0.000207
+"42","organonitrogen compound catabolic process (GO:1901565)","1.41",206,145.71,4.38e-05,0.00582
+"43","response to external stimulus (GO:0009605)","1.39",399,287.22,2.93e-08,1.86e-05
+"44","protein phosphorylation (GO:0006468)","1.38",259,187.16,1.2e-05,0.00208
+"45","protein modification by small protein conjugation or removal (GO:0070647)","1.38",206,148.95,0.000109,0.0109
+"46","response to oxygen-containing compound (GO:1901700)","1.36",409,301.14,1.33e-07,6.31e-05
+"47","response to lipid (GO:0033993)","1.36",183,135.03,0.00059,0.0406
+"48","phosphorylation (GO:0016310)","1.35",301,222.78,1.13e-05,0.00208
+"49","response to organic substance (GO:0010033)","1.35",439,326.07,1.05e-07,5.43e-05
+"50","cell communication (GO:0007154)","1.34",346,258.4,4.19e-06,0.00104
+"51","signaling (GO:0023052)","1.33",278,209.5,6.94e-05,0.00762
+"52","signal transduction (GO:0007165)","1.33",276,207.56,6.48e-05,0.0074
+"53","cellular catabolic process (GO:0044248)","1.33",305,229.26,2.38e-05,0.00367
+"54","cellular macromolecule catabolic process (GO:0044265)","1.33",175,131.47,0.00165,0.0862
+"55","response to chemical (GO:0042221)","1.3",674,518.41,1.58e-09,2.26e-06
+"56","response to inorganic substance (GO:0010035)","1.28",236,184.89,0.00142,0.0773
+"57","response to endogenous stimulus (GO:0009719)","1.28",308,239.94,0.000178,0.0154
+"58","catabolic process (GO:0009056)","1.27",341,268.44,0.00016,0.0143
+"59","organic substance catabolic process (GO:1901575)","1.27",314,246.74,0.000246,0.0204
+"60","response to hormone (GO:0009725)","1.26",294,232.82,6e-04,0.0408
+"61","protein modification process (GO:0036211)","1.25",601,481.5,1.47e-06,0.000419
+"62","cellular protein modification process (GO:0006464)","1.25",601,481.5,1.47e-06,0.000399
+"63","response to stress (GO:0006950)","1.23",742,604.55,4.33e-07,0.000155
+"64","cellular response to stimulus (GO:0051716)","1.23",572,465.31,1.1e-05,0.00217
+"65","phosphorus metabolic process (GO:0006793)","1.21",444,368.17,0.000515,0.0368
+"66","phosphate-containing compound metabolic process (GO:0006796)","1.21",434,359.1,0.000561,0.0396
+"67","cellular protein metabolic process (GO:0044267)","1.18",760,643.4,2.45e-05,0.00368
+"68","response to abiotic stimulus (GO:0009628)","1.17",511,435.2,0.00122,0.0695
+"69","response to stimulus (GO:0050896)","1.17",1201,1029.06,1.56e-07,6.84e-05
+"70","macromolecule modification (GO:0043412)","1.17",657,561.16,0.000241,0.0202
+"71","protein metabolic process (GO:0019538)","1.16",783,676.43,0.000152,0.0143
+"72","organonitrogen compound metabolic process (GO:1901564)","1.15",1018,881.73,1.11e-05,0.00211
+"73","regulation of cellular process (GO:0050794)","1.12",901,805.63,0.0014,0.0771
+"74","regulation of biological process (GO:0050789)","1.12",1038,928.35,0.000503,0.0364
+"75","biological regulation (GO:0065007)","1.1",1137,1033.27,0.0014,0.0776

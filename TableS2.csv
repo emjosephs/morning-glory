@@ -1,0 +1,10 @@
+"","bio","enrich","observed","expected","pval","fdr"
+"1","photosynthesis, light reaction (GO:0019684)","2.55",78,30.55,2.07e-09,3.93e-06
+"2","thylakoid membrane organization (GO:0010027)","2.53",35,13.83,8.82e-05,0.0458
+"3","photosynthesis (GO:0015979)","2.51",112,44.7,1.9e-12,1.09e-08
+"4","plastid membrane organization (GO:0009668)","2.47",35,14.15,0.000103,0.0394
+"5","plastid organization (GO:0009657)","2.06",153,74.28,1.37e-11,3.92e-08
+"6","chloroplast organization (GO:0009658)","2.01",115,57.24,1.24e-08,1.78e-05
+"7","polysaccharide metabolic process (GO:0005976)","1.6",119,74.6,5.3e-05,0.0432
+"8","generation of precursor metabolites and energy (GO:0006091)","1.55",122,78.46,9.77e-05,0.0399
+"9","carbohydrate metabolic process (GO:0005975)","1.42",227,159.81,1.13e-05,0.0129
