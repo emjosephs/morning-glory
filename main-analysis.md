@@ -273,8 +273,43 @@ btest
 ```
 
 ```r
-###
+### look at an FDR of 0.05 for reviewer
+sigboth05 = dplyr::filter(sigboth, adj.P.Val.p < 0.05, adj.P.Val.n < 0.05)
+dim(sigboth05)
+```
 
+```
+## [1] 37 14
+```
+
+```r
+sum(sigboth05$adaptive)
+```
+
+```
+## [1] 25
+```
+
+```r
+btest05 = binom.test(x=sum(sigboth05$adaptive), n = dim(sigboth05)[1], p=0.5)
+btest05
+```
+
+```
+## 
+## 	Exact binomial test
+## 
+## data:  sum(sigboth05$adaptive) and dim(sigboth05)[1]
+## number of successes = 25, number of trials = 37, p-value = 0.04703
+## alternative hypothesis: true probability of success is not equal to 0.5
+## 95 percent confidence interval:
+##  0.5021467 0.8198614
+## sample estimates:
+## probability of success 
+##              0.6756757
+```
+
+```r
 fig2 <- function(x){
 plot(sigboth$logFC.p, sigboth$logFC.n, bty="n", xlab = "Plastic response", ylab = "Evolved response", col = 'white', lwd=3, yaxt="n", cex.axis=2, cex.lab=2, cex=1.5, xlim = c(-5,5), ylim=c(-5,5))
 points(dplyr::filter(sigboth, adaptive==1)$logFC.p, dplyr::filter(sigboth, adaptive==1)$logFC.n, col = gray(0.5), lwd=3, cex=1.5)
@@ -633,6 +668,79 @@ btest3
 ## sample estimates:
 ## probability of success 
 ##              0.6197183
+```
+
+```r
+##test at FDR = 0.05 for reviewer
+sigall805 = dplyr::filter(sigall8, adj.P.Val.p8 < 0.05 & adj.P.Val.n < 0.05)
+dim(sigall805)
+```
+
+```
+## [1]  7 21
+```
+
+```r
+sum(sigall805$adaptive8)
+```
+
+```
+## [1] 5
+```
+
+```r
+btest205 = binom.test(x=sum(sigall805$adaptive8), n = dim(sigall805)[1], p=0.5)
+btest205 ##this is not significant
+```
+
+```
+## 
+## 	Exact binomial test
+## 
+## data:  sum(sigall805$adaptive8) and dim(sigall805)[1]
+## number of successes = 5, number of trials = 7, p-value = 0.4531
+## alternative hypothesis: true probability of success is not equal to 0.5
+## 95 percent confidence interval:
+##  0.2904209 0.9633074
+## sample estimates:
+## probability of success 
+##              0.7142857
+```
+
+```r
+sigall3205 = dplyr::filter(mergeall, adj.P.Val.p32 < 0.05 & adj.P.Val.n < 0.05)
+dim(sigall3205)
+```
+
+```
+## [1] 13 21
+```
+
+```r
+sum(sigall3205$adaptive32)
+```
+
+```
+## [1] 7
+```
+
+```r
+btest305 = binom.test(x=sum(sigall3205$adaptive32), n = dim(sigall3205)[1], p=0.5)
+btest305
+```
+
+```
+## 
+## 	Exact binomial test
+## 
+## data:  sum(sigall3205$adaptive32) and dim(sigall3205)[1]
+## number of successes = 7, number of trials = 13, p-value = 1
+## alternative hypothesis: true probability of success is not equal to 0.5
+## 95 percent confidence interval:
+##  0.2513455 0.8077676
+## sample estimates:
+## probability of success 
+##              0.5384615
 ```
 
 ```r

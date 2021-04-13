@@ -539,9 +539,26 @@ btest</code></pre>
 ## sample estimates:
 ## probability of success 
 ##              0.7234043</code></pre>
-<pre class="r"><code>###
-
-fig2 &lt;- function(x){
+<pre class="r"><code>### look at an FDR of 0.05 for reviewer
+sigboth05 = dplyr::filter(sigboth, adj.P.Val.p &lt; 0.05, adj.P.Val.n &lt; 0.05)
+dim(sigboth05)</code></pre>
+<pre><code>## [1] 37 14</code></pre>
+<pre class="r"><code>sum(sigboth05$adaptive)</code></pre>
+<pre><code>## [1] 25</code></pre>
+<pre class="r"><code>btest05 = binom.test(x=sum(sigboth05$adaptive), n = dim(sigboth05)[1], p=0.5)
+btest05</code></pre>
+<pre><code>## 
+##  Exact binomial test
+## 
+## data:  sum(sigboth05$adaptive) and dim(sigboth05)[1]
+## number of successes = 25, number of trials = 37, p-value = 0.04703
+## alternative hypothesis: true probability of success is not equal to 0.5
+## 95 percent confidence interval:
+##  0.5021467 0.8198614
+## sample estimates:
+## probability of success 
+##              0.6756757</code></pre>
+<pre class="r"><code>fig2 &lt;- function(x){
 plot(sigboth$logFC.p, sigboth$logFC.n, bty=&quot;n&quot;, xlab = &quot;Plastic response&quot;, ylab = &quot;Evolved response&quot;, col = &#39;white&#39;, lwd=3, yaxt=&quot;n&quot;, cex.axis=2, cex.lab=2, cex=1.5, xlim = c(-5,5), ylim=c(-5,5))
 points(dplyr::filter(sigboth, adaptive==1)$logFC.p, dplyr::filter(sigboth, adaptive==1)$logFC.n, col = gray(0.5), lwd=3, cex=1.5)
 points(dplyr::filter(sigboth, adaptive==0)$logFC.p, dplyr::filter(sigboth, adaptive==0)$logFC.n, col = &quot;black&quot;, lwd=3, cex=1.5)
@@ -761,6 +778,43 @@ btest3</code></pre>
 ## sample estimates:
 ## probability of success 
 ##              0.6197183</code></pre>
+<pre class="r"><code>##test at FDR = 0.05 for reviewer
+sigall805 = dplyr::filter(sigall8, adj.P.Val.p8 &lt; 0.05 &amp; adj.P.Val.n &lt; 0.05)
+dim(sigall805)</code></pre>
+<pre><code>## [1]  7 21</code></pre>
+<pre class="r"><code>sum(sigall805$adaptive8)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code>btest205 = binom.test(x=sum(sigall805$adaptive8), n = dim(sigall805)[1], p=0.5)
+btest205 ##this is not significant</code></pre>
+<pre><code>## 
+##  Exact binomial test
+## 
+## data:  sum(sigall805$adaptive8) and dim(sigall805)[1]
+## number of successes = 5, number of trials = 7, p-value = 0.4531
+## alternative hypothesis: true probability of success is not equal to 0.5
+## 95 percent confidence interval:
+##  0.2904209 0.9633074
+## sample estimates:
+## probability of success 
+##              0.7142857</code></pre>
+<pre class="r"><code>sigall3205 = dplyr::filter(mergeall, adj.P.Val.p32 &lt; 0.05 &amp; adj.P.Val.n &lt; 0.05)
+dim(sigall3205)</code></pre>
+<pre><code>## [1] 13 21</code></pre>
+<pre class="r"><code>sum(sigall3205$adaptive32)</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre class="r"><code>btest305 = binom.test(x=sum(sigall3205$adaptive32), n = dim(sigall3205)[1], p=0.5)
+btest305</code></pre>
+<pre><code>## 
+##  Exact binomial test
+## 
+## data:  sum(sigall3205$adaptive32) and dim(sigall3205)[1]
+## number of successes = 7, number of trials = 13, p-value = 1
+## alternative hypothesis: true probability of success is not equal to 0.5
+## 95 percent confidence interval:
+##  0.2513455 0.8077676
+## sample estimates:
+## probability of success 
+##              0.5384615</code></pre>
 <pre class="r"><code>##do any of the adaptive or maladptive genes show changes in direction?
 sig832 = dplyr::filter(mergeall, adj.P.Val.p8 &lt; 0.1 &amp; adj.P.Val.n &lt; 0.1 &amp; adj.P.Val.p32 &lt; 0.1) ##sig in both
 dplyr::filter(sig832, adaptive32 == !adaptive8)</code></pre>

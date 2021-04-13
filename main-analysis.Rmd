@@ -181,7 +181,14 @@ sum(sigboth$adaptive) ## the number of genes where plasticity is adaptive.
 btest = binom.test(x=sum(sigboth$adaptive), n = dim(sigboth)[1], p=0.5)
 btest
 
-###
+### look at an FDR of 0.05 for reviewer
+sigboth05 = dplyr::filter(sigboth, adj.P.Val.p < 0.05, adj.P.Val.n < 0.05)
+dim(sigboth05)
+sum(sigboth05$adaptive)
+btest05 = binom.test(x=sum(sigboth05$adaptive), n = dim(sigboth05)[1], p=0.5)
+btest05
+
+
 
 fig2 <- function(x){
 plot(sigboth$logFC.p, sigboth$logFC.n, bty="n", xlab = "Plastic response", ylab = "Evolved response", col = 'white', lwd=3, yaxt="n", cex.axis=2, cex.lab=2, cex=1.5, xlim = c(-5,5), ylim=c(-5,5))
@@ -384,7 +391,18 @@ sum(sigall32$adaptive32)
 btest3 = binom.test(x=sum(sigall32$adaptive32), n = dim(sigall32)[1], p=0.5)
 btest3
 
+##test at FDR = 0.05 for reviewer
+sigall805 = dplyr::filter(sigall8, adj.P.Val.p8 < 0.05 & adj.P.Val.n < 0.05)
+dim(sigall805)
+sum(sigall805$adaptive8)
+btest205 = binom.test(x=sum(sigall805$adaptive8), n = dim(sigall805)[1], p=0.5)
+btest205 ##this is not significant
 
+sigall3205 = dplyr::filter(mergeall, adj.P.Val.p32 < 0.05 & adj.P.Val.n < 0.05)
+dim(sigall3205)
+sum(sigall3205$adaptive32)
+btest305 = binom.test(x=sum(sigall3205$adaptive32), n = dim(sigall3205)[1], p=0.5)
+btest305
 
 ##do any of the adaptive or maladptive genes show changes in direction?
 sig832 = dplyr::filter(mergeall, adj.P.Val.p8 < 0.1 & adj.P.Val.n < 0.1 & adj.P.Val.p32 < 0.1) ##sig in both
