@@ -346,7 +346,10 @@ points(dplyr::filter(sigboth, adaptive==1)$logFC.p, dplyr::filter(sigboth, adapt
 ```r
 ##combine Fig 1 and Fig 2 for paper
 
-postscript("figures/Fig12_ref.eps",height=8,width=16,paper="special",horizontal=FALSE,colormodel="cymk")
+#postscript("figures/Fig12_ref.eps",height=8,width=16,paper="special",horizontal=FALSE,colormodel="cymk")
+
+pdf("figures/Fig2_ref.pdf",height=8,width=16)
+
 
 par(mar=c(10,7,2,2), xpd=F, mfrow=c(1,2))
 
@@ -373,6 +376,11 @@ legend(-6.5,-7.25, bty="n", c('Adaptive plasticity','Maladaptive plasticity'),pc
 mtext('B',side=3, cex=3, adj=-.1, padj = 0.5)
 
 dev.off()
+```
+
+```
+## png 
+##   2
 ```
 
 
@@ -535,11 +543,17 @@ plascorfig()
 
 ```r
 ## publication figure
-postscript("figures/plas832_ref.eps",height=8,width=10,paper="special",horizontal=FALSE,colormodel="cymk")
+#postscript("figures/plas832_ref.eps",height=8,width=10,paper="special",horizontal=FALSE,colormodel="cymk")
 
+pdf("figures/figS1.pdf",height=8,width=10)
 
 plascorfig()
 dev.off()
+```
+
+```
+## png 
+##   2
 ```
 
 ## Is there anything going on with the genes that show a switch in the direction of plasticity between 8 and 32 hours?
@@ -808,9 +822,16 @@ fig832()
 
 ```r
 ## figure for manuscript
-postscript("figures/plasticity832_ref.eps",height=8,width=12,paper="special",horizontal=FALSE,colormodel="cymk")
+#postscript("figures/plasticity832_ref.eps",height=8,width=12,paper="special",horizontal=FALSE,colormodel="cymk")
+pdf("figures/figS2.pdf",height=8,width=12,)
+
 fig832()
 dev.off()
+```
+
+```
+## png 
+##   2
 ```
 
 
@@ -1019,9 +1040,15 @@ supfigAll()
 
 ```r
 ### figure for manuscript
-postscript("figures/SuppFigAll_ref.eps",height=8,width=10,paper="special",horizontal=FALSE,colormodel="cymk")
+#postscript("figures/SuppFigAll_ref.eps",height=8,width=10,paper="special",horizontal=FALSE,colormodel="cymk")
+pdf("figures/FigS3.pdf",height=8,width=10)
 supfigAll()
 dev.off()
+```
+
+```
+## png 
+##   2
 ```
 
 ### How did plasticity affect selection?
@@ -1205,7 +1232,14 @@ legend(-8.5,-8.5, c('plastic in control lines','plastic in resistant lines','pla
 mtext('C',side=3, cex=2, adj=-.3, padj = -0.5)
 }
 
-postscript("figures/Fig3.eps",height=7,width=12,paper="special",horizontal=FALSE,colormodel="cymk")
+#postscript("figures/Fig3.eps",height=7,width=12,paper="special",horizontal=FALSE,colormodel="cymk")
+pdf("figures/Fig3.pdf",height=7,width=12)
+
 plasfig3()
 dev.off()
+```
+
+```
+## png 
+##   2
 ```
